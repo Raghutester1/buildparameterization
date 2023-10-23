@@ -12,7 +12,10 @@ pipeline {
         stage('login to Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-authtoken') 
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-authtoken') {
+                        docker.image("raghuramdevopsengineer/react:${env.BUILD_NUMBER}").pull()
+                        docker.image("raghuramdevopsengineer/node:${env.BUILD_NUMBER}").pull()
+                    }
                 }
             }
         }
