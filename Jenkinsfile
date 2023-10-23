@@ -16,19 +16,19 @@ pipeline {
             }
         }
 
-        stage('List Docker Images') {
-            steps {
-                script {
-                    bat 'docker images'
+        // stage('List Docker Images') {
+        //     steps {
+        //         script {
+                    
                     // def image1 = params.DOCKER_IMAGES
                     // def version1 = params.DOCKER_IMAGES_VERSION
                     // def environment = params.ENVIRONMENT
 
                     // echo "Listing Docker Images and Versions for Environment: $environment"
                     // echo "selected image: $image1:$version1"
-                }
-            }
-        }
+                // }
+        //     }
+        // }
        
     }
 }
