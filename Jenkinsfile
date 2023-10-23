@@ -1,9 +1,9 @@
 pipeline {
     agent any
     parameters {
-        choice(name: 'DOCKER_IMAGE_1', choices: 'raghuramdevopsengineer/node raghuramdevopsengineer/react raghuramdevopsengineer/fastapi', description: 'Select Docker Image 1')
+        choice(name: 'DOCKER_IMAGE_1', choices: 'raghuramdevopsengineer/node\nraghuramdevopsengineer/react\nraghuramdevopsengineer/fastapi', description: 'Select Docker Image 1')
         string(name: 'DOCKER_IMAGE_1_VERSION', defaultValue: 'all', description: 'Version for Docker Image 1')
-        string(name: 'ENVIRONMENT', defaultValue:'DEV STAGE PROD', description: 'Target Environment (e.g., dev, staging, production)')
+        string(name: 'ENVIRONMENT', defaultValue:'DEV\nSTAGE\nPROD', description: 'Target Environment (e.g., dev, staging, production)')
     }
 
     stages {
