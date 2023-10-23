@@ -1,11 +1,9 @@
 pipeline {
     agent any
     parameters {
-        choice(name: 'DOCKER_IMAGE_1', choices: 'raghuramdevopsengineer/node', description: 'Select Docker Image 1')
-        string(name: 'DOCKER_IMAGE_1_VERSION', defaultValue: 'latest', description: 'Version for Docker Image 1')
-        choice(name: 'DOCKER_IMAGE_2', choices: 'raghuramdevopsengineer/react', description: 'Select Docker Image 2')
-        string(name: 'DOCKER_IMAGE_2_VERSION', defaultValue: 'latest', description: 'Version for Docker Image 2')
-        string(name: 'ENVIRONMENT', description: 'Target Environment (e.g., dev, staging, production)')
+        choice(name: 'DOCKER_IMAGE_1', choices: 'raghuramdevopsengineer/node raghuramdevopsengineer/react raghuramdevopsengineer/fastapi', description: 'Select Docker Image 1')
+        string(name: 'DOCKER_IMAGE_1_VERSION', defaultValue: 'all', description: 'Version for Docker Image 1')
+        string(name: 'ENVIRONMENT', defaultValue:'DEV STAGE PROD', description: 'Target Environment (e.g., dev, staging, production)')
     }
 
     stages {
@@ -23,7 +21,7 @@ pipeline {
         stage('List Docker Images') {
             steps {
                 script {
-                    def image1 = params.DOCKER_IMAGE_1
+                    def image1 = params.DOCKER_IMAGE_1s
                     def version1 = params.DOCKER_IMAGE_1_VERSION
                     def image2 = params.DOCKER_IMAGE_2
                     def version2 = params.DOCKER_IMAGE_2_VERSION
