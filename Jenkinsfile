@@ -1,8 +1,8 @@
 pipeline {
     agent any
     parameters {
-        choice(name: 'DOCKER_IMAGES', choices: [], description: 'Select Docker Image 1')
-        choice(name: 'DOCKER_IMAGES_VERSION', choices: [], description: 'Version for Docker Images')
+        choice(name: 'DOCKER_IMAGES', choices: [''], description: 'Select Docker Image')
+        choice(name: 'DOCKER_IMAGES_VERSION', choices: [''], description: 'Version for Docker Image')
         choice(name: 'ENVIRONMENT', choices: ['DEV','STAGE','PROD'], description: 'Target Environment (e.g., dev, staging, production)')
     }
 
